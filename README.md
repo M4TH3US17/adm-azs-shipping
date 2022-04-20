@@ -14,8 +14,7 @@
   </code>
 </pre>
 
-<details>
-<summary><h2> 1 Query (pesquisar tudo)</h2></summary>
+<h2> 1 Query (pesquisar tudo)</h2>
 
 <h3>1.1 todos os endereços</h3>
 <pre>
@@ -112,10 +111,8 @@
 }
   </code>
 </pre>
-</details>
 
-<details>
-<summary><h2>2 Query (pesquisar por id)</h2></summary>
+<h2>2 Query (pesquisar por id)</h2>
 
 <h3>2.1 Pesquisar endereço por id</h3>
 <pre>
@@ -206,10 +203,8 @@
 }
 </code>
 </pre>
-</details>
 
-<details>
-<summary><h2>3 Mutation (create)</h2></summary>
+<h2>3 Mutation (create)</h2>
 
 <h3>3.1 criar um endereço</h3>
 <pre>
@@ -307,10 +302,8 @@
   ainda está em andamento...
 </code>
 </pre>
-</details>
 
-<details>
-<summary><h2>4 Mutation (update)</h2></summary>
+<h2>4 Mutation (update)</h2>
 <h3>4.1 atualizar endereço:</h3>
 <p><strong>Detalhe:</strong> você pode informar passar qualquer parâmetro para ser atualizado, somente o ID não que não pode ser atualizado.</p>
 <pre>
@@ -328,7 +321,7 @@
 </code>
 </pre>
 
-<h3>4.2 atualizar Cliente:></h3>
+<h3>4.2 atualizar Cliente:</h3>
 <pre>
 <code>
 mutation {
@@ -385,4 +378,22 @@ mutation {
 }
 </code>
 </pre>
-</details>
+
+<h2>5 Mutation (deletar por id) </h2>
+<h3>5.1 deletar Frete</h3>
+<pre>
+<code>
+mutation {
+  deleteFreteById(id: 1)
+}
+</code>
+</pre>
+
+<h3>5.2 deletar Cliente</h3>
+<pre>
+<code>
+  mutation {
+  deleteClienteById(id: 1)
+}
+</code>
+</pre>
