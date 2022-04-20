@@ -35,9 +35,9 @@ public class Frete implements Serializable {
 	@ManyToOne
 	private Cliente cliente;
 	
-	public Frete(List<Mercadoria> mercadorias, Cliente cliente) {
-		this.mercadorias = mercadorias;
+	public Frete(Mercadoria mercadoria, Cliente cliente) {
 		this.cliente = cliente;
+		mercadorias.add(mercadoria);
 	}
 
 	@Override

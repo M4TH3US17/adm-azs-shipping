@@ -14,7 +14,8 @@
   </code>
 </pre>
 
-<h2> 1 Query (pesquisar tudo)</h2>
+<details>
+<summary><h2> 1 Query (pesquisar tudo)</h2></summary>
 
 <h3>1.1 todos os endereços</h3>
 <pre>
@@ -111,8 +112,10 @@
 }
   </code>
 </pre>
+</details>
 
-<h2>2 Query (pesquisar por id)</h2>
+<details>
+<summary><h2>2 Query (pesquisar por id)</h2></summary>
 
 <h3>2.1 Pesquisar endereço por id</h3>
 <pre>
@@ -203,8 +206,10 @@
 }
 </code>
 </pre>
+</details>
 
-<h2>3 Mutation (create)</h2>
+<details>
+<summary><h2>3 Mutation (create)</h2></summary>
 
 <h3>3.1 criar um endereço</h3>
 <pre>
@@ -302,10 +307,12 @@
   ainda está em andamento...
 </code>
 </pre>
+</details>
 
-<h2>4 Mutation (update)</h2>
+<details>
+<summary><h2>4 Mutation (update)</h2></summary>
 <h3>4.1 atualizar endereço:</h3>
-<p><strong>Detalhe:</strong> você pode informar qualquer parâmetro para ser atualizado, somente o ID não é atualizado.</p>
+<p><strong>Detalhe:</strong> você pode informar passar qualquer parâmetro para ser atualizado, somente o ID não que não pode ser atualizado.</p>
 <pre>
 <code>
   mutation {
@@ -360,9 +367,22 @@ mutation {
 </code>
 </pre>
 
-<h3>4.4 atualizar Frete:</h3>
+<h3>4.4 atualizar Frete (add Item):</h3>
 <pre>
 <code>
- em andamento...
+ mutation{
+  updateFrete(id: 1, mId:4){
+    id
+    mercadorias{
+      id
+    }
+    cliente{
+      nome
+      email
+      contato
+    }
+  }
+}
 </code>
 </pre>
+</details>

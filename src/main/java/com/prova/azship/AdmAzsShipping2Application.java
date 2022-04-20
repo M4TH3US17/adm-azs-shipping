@@ -1,6 +1,7 @@
 package com.prova.azship;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -45,9 +46,17 @@ public class AdmAzsShipping2Application implements CommandLineRunner {
 		Mercadoria mercadoria1 = mercadoriaRepository.save(new Mercadoria(0.80, 0.80, 1.0, 2, TipoTransporte.RODOVIARIO));
 		Mercadoria mercadoria2 = mercadoriaRepository.save(new Mercadoria(0.80, 0.80, 1.0, 1, TipoTransporte.RODOVIARIO));
 		Mercadoria mercadoria3 = mercadoriaRepository.save(new Mercadoria(0.80, 0.80, 1.0, 1, TipoTransporte.AEREO));
+		mercadoriaRepository.save(new Mercadoria(0.20, 0.20, 11.0, 1, TipoTransporte.AEREO));
 		
-		freteRepository.save(new Frete(1L, Arrays.asList(mercadoria1, mercadoria2), cliente1));
-		freteRepository.save(new Frete(2L, Arrays.asList(mercadoria3), cliente2));
+		List<Mercadoria> frete1 = new ArrayList<>();
+		frete1.add(mercadoria1);
+		frete1.add(mercadoria2);
+		
+		List<Mercadoria> frete2 = new ArrayList<>();
+		frete2.add(mercadoria3);
+		
+		freteRepository.save(new Frete(1L, frete1, cliente1));
+		freteRepository.save(new Frete(2L, frete2, cliente2));
 	}
 
 }

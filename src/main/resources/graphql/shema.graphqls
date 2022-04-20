@@ -60,6 +60,11 @@ type Frete {
   cliente: Cliente
 }
 
+input FreteInput {
+  mercadoriaId: Int,
+  clienteId: Int
+}
+
 type Query {
   findAllEndereco: [Endereco]
   findByEnderecoId(id: Int): Endereco
@@ -80,6 +85,9 @@ type Mutation {
   updateMercadoria(id: Int!, largura: Float, altura: Float, profundidade: Float, quantidade: Int, transporte: TipoTransporte) : Mercadoria
   deleteFreteById(id: Int): Boolean
   deleteClienteById(id: Int): Boolean
+  addItemFrete(id: Int!, mId: Int, mId2: Int, mId3: Int, mId4: Int, mId5: Int): Frete
+  createFrete(input: FreteInput): Frete
+  removeMercadoria(id: Int!, itemId: Int)
 }
 
 

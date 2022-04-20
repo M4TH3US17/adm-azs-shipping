@@ -1,9 +1,5 @@
 package com.prova.azship.input;
 
-import java.util.List;
-
-import com.prova.azship.model.Mercadoria;
-
 import graphql.schema.GraphQLInputType;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,11 +8,11 @@ import lombok.Setter;
 public class FreteInput implements GraphQLInputType {
 
 	private Long clienteId;
-	private List<Mercadoria> mercadorias;
+	private Long mercadoriaId;
 	
 	@Override
 	public String getName() {
-		return "";
+		return mercadoriaId.toString();
 	}
 
 }
