@@ -29,6 +29,15 @@ public class ClienteResolver implements GraphQLQueryResolver, GraphQLMutationRes
 		return repository.findById(id).get();
 	}
 
+	public Boolean deleteClienteById(Long id) {
+		if(repository.existsById(id) == true) {
+			repository.deleteById(id);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public Cliente createCliente(ClienteInput input) {
 		Endereco endereco = enderecoRepository.findById(input.getEnderecoId()).get();
 		return repository.save(new Cliente(input.getName(), input.getEmail(), input.getContato(), endereco));

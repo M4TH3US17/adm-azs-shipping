@@ -28,8 +28,20 @@ public class FreteResolver implements GraphQLQueryResolver, GraphQLMutationResol
 		return repository.findById(id).get();
 	}
 	
+	public Boolean deleteFreteById(Long id) {
+		if(repository.existsById(id) == true) {
+			repository.deleteById(id);
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 	public Frete createFrete(FreteInput input) {
-		return repository.save(new Frete(input.getMercadorias(), input.getClienteId()));
+		return repository.save(new Frete(
+				input.getMercadorias(),
+				clienteRepository.findById(input.getClienteId()).get()
+				));
 	}
 
 	public Frete updateFrete(Long id, Long clienteId) {

@@ -60,12 +60,6 @@ type Frete {
   cliente: Cliente
 }
 
-input FreteInput {
-   mercadorias: [Mercadoria],
-   cliente: Cliente
-}
-}
-
 type Query {
   findAllEndereco: [Endereco]
   findByEnderecoId(id: Int): Endereco
@@ -84,7 +78,8 @@ type Mutation {
   updateCliente(id: Int!, nome: String, email: String, contato: String) : Cliente
   createMercadoria(input: MercadoriaInput) : Mercadoria
   updateMercadoria(id: Int!, largura: Float, altura: Float, profundidade: Float, quantidade: Int, transporte: TipoTransporte) : Mercadoria
-  updateFrete(id: Int, clienteId: Int) : Frete
+  deleteFreteById(id: Int): Boolean
+  deleteClienteById(id: Int): Boolean
 }
 
 

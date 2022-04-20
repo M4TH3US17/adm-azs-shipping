@@ -30,7 +30,7 @@ public class MercadoriaResolver implements GraphQLQueryResolver, GraphQLMutation
 		return repository.save(new Mercadoria(input.getLargura(), input.getAltura(), input.getProfundidade(),
 				input.getQuantidade(), input.getTransporte()));
 	}
-
+	
 	public Mercadoria updateMercadoria(Long id, Double largura, Double altura, Double profundidade, Integer quantidade,
 			TipoTransporte transporte) {
 
