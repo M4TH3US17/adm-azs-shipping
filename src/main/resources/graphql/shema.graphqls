@@ -1,0 +1,90 @@
+type Endereco {
+  id: ID!,
+  rua: String,
+  estado: String,
+  cidade: String,
+  bairro: String,
+  numCasa: Int
+}
+
+input EnderecoInput {
+  rua: String,
+  estado: String,
+  cidade: String,
+  bairro: String,
+  numCasa: Int
+}
+
+type Cliente {
+  id: ID!,
+  nome: String,
+  email: String,
+  contato: String,
+  endereco: Endereco
+}
+
+input ClienteInput {
+  nome: String,
+  email: String,
+  contato: String,
+  enderecoId: Int
+}
+
+type Mercadoria {
+  id: ID!,
+  transporte: TipoTransporte,
+  largura: Float,
+  altura: Float,
+  profundidade: Float,
+  quantidade: Int,
+  pesoCubado: Float
+}
+
+input MercadoriaInput {
+  largura: Float,
+  altura: Float,
+  profundidade: Float,
+  quantidade: Int,
+  transporte: TipoTransporte
+}
+
+enum TipoTransporte {
+  RODOVIARIO
+  HIDROVIARIO
+  AEREO
+}
+
+type Frete {
+  id: ID!,
+  mercadorias: [Mercadoria],
+  cliente: Cliente
+}
+
+input FreteInput {
+   mercadorias: [Mercadoria],
+   cliente: Cliente
+}
+}
+
+type Query {
+  findAllEndereco: [Endereco]
+  findByEnderecoId(id: Int): Endereco
+  findClienteById(id: Int): Cliente
+  findAllCliente: [Cliente]
+  findAllMercadoria: [Mercadoria]
+  findMercadoriaById(id: Int): Mercadoria
+  findAllFrete: [Frete]
+  findFreteById(id: Int): Frete
+}
+
+type Mutation {
+  createEndereco(endereco : EnderecoInput) : Endereco
+  updateEndereco(id: Int!, rua: String, estado: String, bairro: String, cidade: String, numCasa: Int): Endereco
+  createCliente(input: ClienteInput) : Cliente
+  updateCliente(id: Int!, nome: String, email: String, contato: String) : Cliente
+  createMercadoria(input: MercadoriaInput) : Mercadoria
+  updateMercadoria(id: Int!, largura: Float, altura: Float, profundidade: Float, quantidade: Int, transporte: TipoTransporte) : Mercadoria
+  updateFrete(id: Int, clienteId: Int) : Frete
+}
+
+
