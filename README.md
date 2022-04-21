@@ -162,7 +162,6 @@
     largura
     altura
     comprimento
-    comprimento
     quantidade
     pesoCubado
   }
@@ -240,13 +239,12 @@
 <h3>3.2 criar um Cliente</h3>
 <pre>
 <code>
-  {
-  "endereco": {
-    "rua": "ruaTeste",
-    "estado": "estadoTeste",
-    "cidade": "cidadeTeste",
-    "bairro": "bairroteste",
-    "numCasa": 0
+  mutation($cliente:ClienteInput){
+  createCliente(cliente:$cliente){
+    nome
+    email
+    contato
+    enderecoId
   }
 }
 </code>
@@ -282,6 +280,7 @@
 </pre>
 
 <h3>3.3 em query variables digite:</h3>
+<p>Informe a largura, altura e profundidade em metros</p>
 <pre>
 <code>
   {
@@ -305,7 +304,7 @@
 
 <h2>4 Mutation (update)</h2>
 <h3>4.1 atualizar endereço:</h3>
-<p><strong>Detalhe:</strong> você pode informar passar qualquer parâmetro para ser atualizado, somente o ID não que não pode ser atualizado.</p>
+<p><strong>Detalhe:</strong> você pode passar qualquer parâmetro para ser atualizado, somente o ID não que não pode ser atualizado.</p>
 <pre>
 <code>
   mutation {
@@ -322,6 +321,7 @@
 </pre>
 
 <h3>4.2 atualizar Cliente:</h3>
+<p>Pode mudar o que quiser, nome, email, etc.</p>
 <pre>
 <code>
 mutation {
